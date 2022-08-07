@@ -4,7 +4,8 @@ set(PROJECT_FULL_NAME "Downstream keyer")
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.h.in ${CMAKE_CURRENT_SOURCE_DIR}/version.h)
 
-find_package(Qt5Widgets)
+find_qt(COMPONENTS Widgets)
+#find_package(Qt5Widgets)
 
 set(CMAKE_AUTOMOC ON)
 set(downstream-keyer_HEADERS
@@ -39,7 +40,7 @@ add_library(downstream-keyer MODULE
 
 target_link_libraries(downstream-keyer
 		obs-frontend-api
-		Qt5::Widgets
+		Qt::Widgets
 		libobs)
 
 set_target_properties(downstream-keyer PROPERTIES FOLDER "plugins/exeldro")
